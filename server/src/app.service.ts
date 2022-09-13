@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class AppService {
-  isSecretValid(secret: string): boolean {
-    return secret === '1234';
+  isTokenValid(token: string): boolean {
+    return token === '1234';
   }
 }
