@@ -4,11 +4,11 @@ import {
   Headers,
   UnauthorizedException,
 } from '@nestjs/common';
-import { AppService } from './app.service';
+import { CaesarService } from './caesar.service';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(private readonly appService: CaesarService) {}
 
   @Get('flag')
   getFlag(@Headers('token') token: string): string {
