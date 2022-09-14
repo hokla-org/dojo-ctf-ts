@@ -22,6 +22,6 @@ yarn start:file
 yarn start:api
 ```
 
-Some pirate told me the pirate is somewhere over here [`https://dojo-ctf.cleverapps.io/`](https://dojo-ctf.cleverapps.io/) 🤔
+Some pirate told me the flag is somewhere over here [`https://dojo-ctf.cleverapps.io/`](https://dojo-ctf.cleverapps.io/) 🤔
 
 Good luck !
