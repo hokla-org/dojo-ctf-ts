@@ -1,33 +1,28 @@
-import { Injectable } from '@nestjs/common';
+const alphabet = [...Array(26)].map(
+  (_, i) => `${String.fromCharCode(i + 'a'.charCodeAt(0))}`,
+);
 
-@Injectable()
-export class CaesarService {
-  alphabet = [...Array(26)].map(
-    (_, i) => `${String.fromCharCode(i + 'a'.charCodeAt(0))}`,
-  );
+function adjustedModulo(n: number, m: number) {
+  return ((n % m) + m) % m;
+}
 
-  mod(n, m) {
-    return ((n % m) + m) % m;
+function transformText(text: string, pad: number): string {
+  return text
+    .split('')
+    .map((letter) => transformLetter(letter, pad))
+    .join('');
+}
+
+function transformLetter(letter: string, pad: number): string {
+  const index = alphabet.indexOf(letter);
+  if (index !== -1) {
+    const newIndex = adjustedModulo(index + pad, alphabet.length);
+    return alphabet[newIndex];
   }
 
-  transformText(text: string, pad: number): string {
-    return text
-      .split('')
-      .map((letter) => this.transformLetter(letter, pad))
-      .join('');
-  }
+  return letter;
+}
 
-  transformLetter(letter: string, pad: number): string {
-    const index = this.alphabet.indexOf(letter);
-    if (index !== -1) {
-      const newIndex = this.mod(index + pad, this.alphabet.length);
-      return this.alphabet[newIndex];
-    }
-
-    return letter;
-  }
-
-  isTokenValid(token: string): boolean {
-    return this.transformText(token, 5) === 'zxj dtzw ijgzlljw ;)';
-  }
+export function isTokenValid(token: string): boolean {
+  return transformText(token, 5) === 'zxj dtzw ijgzlljw ;)';
 }

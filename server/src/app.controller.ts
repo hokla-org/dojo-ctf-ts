@@ -4,15 +4,15 @@ import {
   Headers,
   UnauthorizedException,
 } from '@nestjs/common';
-import { CaesarService } from './caesar.service';
+import { isTokenValid } from './caesar.service';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: CaesarService) {}
+  constructor() {}
 
   @Get('flag')
   getFlag(@Headers('token') token: string): string {
-    if (!this.appService.isTokenValid(token)) {
+    if (!isTokenValid(token)) {
       throw new UnauthorizedException('Invalid token');
     }
 
