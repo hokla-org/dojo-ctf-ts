@@ -2,6 +2,7 @@ import { argv } from "process";
 import { APIService } from "./APIService";
 import { FileService } from "./FileService";
 import { FlagRetriever } from "./FlagRetriever";
+import axios from "axios";
 
 let fetch: (type: string) => Promise<string>;
 
@@ -21,6 +22,12 @@ switch (argv[2]) {
 const retriever = new FlagRetriever(fetch);
 
 (async () => {
-  const flag = await retriever.fetchFlag();
-  console.log(flag);
+  try {
+    const flag = await retriever.fetchFlag();
+    console.log(flag);
+  } catch (err) {
+    if (axios.isAxiosError(err)) {
+      console.error(err.toJSON());
+    }
+  }
 })();
