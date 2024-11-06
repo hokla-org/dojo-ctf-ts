@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start:file": "ts-node src/main.ts file",
-    "start:api": "API_ENDPOINT=https://dojo-ctf.cleverapps.io/ ts-node src/main.ts api"
+    "start:api": "API_ENDPOINT=www.example.com/ ts-node src/main.ts api"
   },
   "devDependencies": {
     "@types/node": "^18.7.16",
