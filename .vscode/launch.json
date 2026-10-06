@@ -14,7 +14,7 @@
       "program": "${workspaceFolder}/client/src/main.ts",
       "outFiles": ["${workspaceFolder}/**/*.js"],
       "args": ["api"],
-      "env": { "API_ENDPOINT": "https://dojo-ctf.cleverapps.io/" }
+      "env": { "API_ENDPOINT": "www.example.com/" }
     },
     {
       "type": "node",
