@@ -16,7 +16,7 @@ You have to retrieve the flag ! It’s a secret string stored on a secret locati
 
 ### :warning: Rules
 
-- You must only use the client to retrieve the file (no curl, postman, ...)
+- You must only use the client to retrieve the flag (no curl, postman, ...)
 - You can only modify `client/package.json` and `client/src/main.ts`
 
 Hint :
